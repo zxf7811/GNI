@@ -1,0 +1,14 @@
+function [GNI] = GNI_cov1(M)
+data = M;
+C = cov(data);
+[vec, lamda]=eig(C);
+a = eig(C);
+y = diag(lamda);
+[lamda,ind] = sort(y, 'descend');
+rate = lamda./sum(lamda); 
+rate_sum = cumsum(rate); 
+k = find(rate_sum>0.99); 
+Vec = vec(:, ind(1:k(1))); 
+coeff = repmat(rate(1:(k(1)))', [size(M,1),1]);
+results = data*Vec;
+GNI = sqrt(sum(results.* results,2));

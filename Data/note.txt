@@ -1,0 +1,2 @@
+SingleWalk1~4 are the raw data directly output by NORAXON.
+Result_1~4SingleWalk are the gait parameters obtained through the quantitative gait assessment model.
